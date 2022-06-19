@@ -1,12 +1,12 @@
 from django.apps import AppConfig
-from transformers import pipeline, BertForSequenceClassification
+from transformers import pipeline, BertTokenizer, BertForSequenceClassification
 
+# tokenizer = BertTokenizer.from_pretrained("/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_model/vocab.txt")
+    
 class QueryoptimizerConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'QueryOptimizer'
-    predict_model=pipeline("question-answering", 
-    model=BertForSequenceClassification.from_pretrained('/Users/jinseo/Demopage/demopage/QueryOptimizer/predict_model'),
-    tokenizer="/Users/jinseo/Demopage/demopage/QueryOptimizer/predict_model"
+    predict_model=BertForSequenceClassification.from_pretrained('/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_model'
     )
 
 # /Users/jinseo/miniforge3/envs/ftvenv/bin/python manage.py runserver

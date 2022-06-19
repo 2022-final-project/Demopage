@@ -1,6 +1,6 @@
 demopage/demopage/__pycache__
 demopage/QueryOptimizer/__pycache__
-demopage/QueryOptimizer/predict_model
+demopage/QueryOptimizer/pretrained_model
 *.json
 *.bin
 *.pyc
