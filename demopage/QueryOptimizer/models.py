@@ -9,6 +9,3 @@ class Query(models.Model):
     random_page_cost_8=models.BooleanField(default=0)
     random_page_cost_16=models.BooleanField(default=0)
     random_page_cost_32=models.BooleanField(default=0)
-
-    def __str__(self):
-        return self.goal
