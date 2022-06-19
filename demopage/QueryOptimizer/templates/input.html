@@ -8,7 +8,8 @@
 </head>
 <body>
     <form action="{% url 'input' %}" enctype="multipart/form-data"  method="POST" class="form">
-                <input type="text" placeholder="Enter the SQL query" name="queryInput" />
+        {% csrf_token %}
+            <input type="text" placeholder="Enter the SQL query" name="queryInput" />
         <input type="submit" value="Calculate" class="ok"></input>
     </form>
 </div>

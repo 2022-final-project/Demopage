@@ -9,8 +9,8 @@ def enter_query(request):
     if request.method=='POST':
         query_input.query_sentence=request.POST['queryInput']
         query_input.save()
-        return redirect('main')
-    return render(request, 'main.html')
+        return redirect('result')
+    return render(request, 'input.html')
 
 def predict(request, id):
     query_input=get_object_or_404(Query, pk=id)
