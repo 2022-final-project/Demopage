@@ -1,0 +1,4 @@
+demopage/QueryOptimizer/__pycache__
+demopage/QueryOptimizer/predict_model
+*.json
+*.bin
