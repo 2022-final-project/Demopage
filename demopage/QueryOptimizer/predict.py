@@ -5,6 +5,7 @@ from tensorflow import keras
 from transformers import pipeline
 from transformers import BertTokenizer
 from transformers import BertModel
+from transformers import AutoTokenizer
 from transformers import BertForSequenceClassification, AdamW, BertConfig, BertForMultipleChoice
 from transformers import get_linear_schedule_with_warmup
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
@@ -20,8 +21,8 @@ import time
 import datetime
 import random
 
-tokenizer = BertTokenizer.from_pretrained("./modeling/vocab.txt")       # 구현된 vocab.txt file로 tokenizer를 구현한다.
-model = BertForSequenceClassification.from_pretrained('./modeling/model.pt')
+model=BertForSequenceClassification.from_pretrained('/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_model'),
+tokenizer = AutoTokenizer.from_pretrained('/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_model')
 
 device = torch.device("cpu")
 
@@ -96,23 +97,3 @@ def test_sentences(sentences):
 
     print(" ==> result : ", ret)
     return ret
-
-# ——————————— 새로운 문장 테스트 입력 ——————————
-# print(" 추가적인 문장 test\n")
-
-test_q = open('./modeling/test_data.txt', 'r')
-test_queries = []
-
-while True:
-    q = test_q.readline()
-
-    if q == '': break
-    test_queries.append(q)
-
-# for q in test_queries:
-#     print(" query :", q[:-1])
-#     test = test_sentences(q[:-1])
-logits_test1 = test_sentences(['select c9 sum c14 c15 c33 c36 from t1 t4 t2 where c7 and c1 c30 and c9 c29 and c33 date and c19 date group by c9 c33 c36 order by desc c33 asc'])   
-logits_test2 = test_sentences(['select avg c14 from t2 t5 t6 where c19 date and c38 c54 and c38 c10 and c41 like and c44 and c13 select avg c13 from t2 where c10 c38'])   
-logits_test3 = test_sentences(['select c52 c48 c26 c38 c40 c49 c51 c53 from t5 t8 t6 t3 where c38 c54 and c47 c55 and c43 and c42 like and c50 c25 and c43 and and c57 select min c57 from t6 t3 t7 t8 where c38 c54 and c47 c55 and c50 c25 and c27 c59 and c60 order by c52 c26 c48 c38'])   
-logits_test4 = test_sentences(['select c9 sum c14 c15 count c33 from t1 t4 t2 where c7 and c1 c30 and c9 c29 and c33 date group by c9 c33 order by desc c33 asc'])
