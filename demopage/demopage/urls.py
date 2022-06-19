@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from QueryOptimizer import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.enter_query, name="input"),
+    path('result/<str:id>', views.predict, name="result")
 ]
