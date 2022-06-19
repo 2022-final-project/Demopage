@@ -18,8 +18,9 @@ import pandas as pd
 import numpy as np
 import random
 
-model=BertForSequenceClassification.from_pretrained('/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_model'),
-tokenizer = AutoTokenizer.from_pretrained('/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_tokenizer')
+
+tokenizer = BertTokenizer.from_pretrained("/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_tokenizer/vocab.txt")
+model=BertForSequenceClassification.from_pretrained('/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_model')
 
 device = torch.device("cpu")
 
