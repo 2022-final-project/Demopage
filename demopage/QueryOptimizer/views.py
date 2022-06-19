@@ -25,13 +25,8 @@ def predict(request, id):
     query_input.save()
 
     result={
-        'query': query_input.query_sentence,
-        'random_page_cost_1':query_input.random_page_cost_1,
-        'random_page_cost_2':query_input.random_page_cost_2,
-        'random_page_cost_4':query_input.random_page_cost_4,
-        'random_page_cost_8':query_input.random_page_cost_8,
-        'random_page_cost_16':query_input.random_page_cost_16,
-        'random_page_cost_32':query_input.random_page_cost_32
+        'result': query_input
     }
+    print(query_input.query_sentence)
 
     return render(request, 'result.html', result)
