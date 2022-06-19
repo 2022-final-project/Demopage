@@ -14,7 +14,7 @@ def enter_query(request):
 
 def predict(request, id):
     query_input=get_object_or_404(Query, pk=id)
-    result_cost=test_sentences(query_input).eval() # return type : [0, 0, 0, 0, 0, 0]
+    result_cost=test_sentences(query_input.query_sentence) # return type : [0, 0, 0, 0, 0, 0]
 
     if result_cost[0]==1: query_input.random_page_cost_1=1
     if result_cost[1]==1: query_input.random_page_cost_2=1
