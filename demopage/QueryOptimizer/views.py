@@ -9,7 +9,7 @@ def enter_query(request):
     if request.method=='POST':
         query_input.query_sentence=request.POST['queryInput']
         query_input.save()
-        return redirect('result')
+        return redirect('/result/'+str(query_input.id))
     return render(request, 'input.html')
 
 def predict(request, id):
