@@ -7,7 +7,13 @@
     <title>PostgreSQL Query Optimizer using BERT</title>
 </head>
 <body>
-    input query: {{result.query_sentence}}
-    random page cost: {{result.random_page_cost_1}}
+    Input query: {{result.query_sentence}} </br>
+    Optimal Random_page_cost is<br/>
+    {% if result.random_page_cost_1 == 1 %} 1.0 {% endif %} <br/>
+    {% if result.random_page_cost_2 == 1 %} 2.0 {% endif %} <br/>
+    {% if result.random_page_cost_4 == 1 %} 4.0 {% endif %} <br/>
+    {% if result.random_page_cost_8 == 1 %} 8.0 {% endif %} <br/>
+    {% if result.random_page_cost_16 == 1 %} 16.0 {% endif %} <br/>
+    {% if result.random_page_cost_32 == 1 %} 32.0 {% endif %} <br/>
 </body>
 </html>

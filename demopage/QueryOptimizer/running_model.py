@@ -2,30 +2,19 @@ import tensorflow as tf
 import torch
 
 from tensorflow import keras
-from transformers import pipeline
-from transformers import BertTokenizer
-from transformers import BertModel
-from transformers import AutoTokenizer
-from transformers import BertForSequenceClassification, AdamW, BertConfig, BertForMultipleChoice
+from transformers import pipeline, BertTokenizer, BertTokenizer, BertForSequenceClassification
 from transformers import get_linear_schedule_with_warmup
-from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from keras_preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
-from keras.callbacks import EarlyStopping, ModelCheckpoint
 
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import random
-
 
 tokenizer = BertTokenizer.from_pretrained("/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_tokenizer/vocab.txt")
 model=BertForSequenceClassification.from_pretrained('/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_model')
 
 device = torch.device("cpu")
-
-# ---------------------- 새로운 문장 테스트 --------------------
-
 
 # 입력 데이터 변환
 def convert_input_data(sentences):
