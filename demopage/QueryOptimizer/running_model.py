@@ -17,9 +17,22 @@ model=BertForSequenceClassification.from_pretrained('/Users/jinseo/Demopage/demo
 device = torch.device("cpu")
 
 # 입력 데이터 변환
-def convert_input_data(sentences):
+def convert_input_data(sen):
+    # v = open("/Users/jinseo/Demopage/demopage/QueryOptimizer/pretrained_tokenizer/vocab.txt", 'r')
+    # vocab_dic = {}
+    # while True:
+    #     q = v.readline()
+    #     if q == '': break
+    #     vocab_dic[q[:-1]] = 
+    
+    sentences = []
+    sentences.append(sen)
+
+    print(" sentence :", sentences)
+
     # BERT의 토크나이저로 문장을 토큰으로 분리
     tokenized_texts = [tokenizer.tokenize(sent) for sent in sentences]
+    print(tokenized_texts)
 
     # 입력 토큰의 최대 시퀀스 길이
     MAX_LEN = 128
@@ -47,7 +60,7 @@ def convert_input_data(sentences):
 
     # 문장 테스트
 def test_sentences(sentences):
-
+    sentences = sentences[:-1].strip()
     # 평가모드로 변경
     model.eval()
     # print("======== 최종 Result ========\n=== input data: ", sentences)

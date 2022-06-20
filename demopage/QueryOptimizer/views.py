@@ -10,6 +10,7 @@ def enter_query(request):
     if request.method=='POST':
         query_input.original_query_input=request.POST['queryInput']
         query_input.query_sentence=request.POST['queryInput']
+        print(query_input.original_query_input)
         query_input.save()
         return redirect('/result/'+str(query_input.id))
     return render(request, 'input.html')
