@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,33 @@
     <title>PostgreSQL Query Optimizer using BERT</title>
 </head>
 <body>
+    <div style="padding: 100px; text-align: center;">
+        <h1>Query Optimizer using BERT<br>in PostgreSQL</h1>
     <form action="{% url 'input' %}" enctype="multipart/form-data"  method="POST" class="form">
         {% csrf_token %}
-            <input type="text" placeholder="Enter the SQL query" name="queryInput" />
-        <input type="submit" value="Calculate" class="ok"></input>
+            <input  type="text"
+                    placeholder="      Enter the SQL query"
+                    name="queryInput"
+                    style="width: 80%;
+                    margin-top: 50px;
+                    height:50px;
+                    font-size:18px;
+                    border-radius: 20px;
+                    border-color: lightgray;
+                    "/>
+        <input type="submit" value="Calculate" class="ok"
+                    style="width: 20%;
+                    margin-top: 40px;
+                    height:50px;
+                    font-size:20px;
+                    color: white;
+                    border-radius: 20px;
+                    background-color: #000080;
+                    "
+        ></input>
     </form>
+    <div style="margin-top: 80px; color: gray; font-size:14px">
+    2022-1 정보통신종합설계<br>Inha Univ. Information and Communication Engineering<br>최조훈, 고병찬, 송진서</div>
+    </div>
 </body>
 </html>

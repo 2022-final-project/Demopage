@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PostgreSQL Query Optimizer using BERT</title>
+    <style>
+        .cost{
+            padding: 5px;
+            margin-right:10px;
+        }
+    </style>
 </head>
 <body>
-    Input query: {{result.query_sentence}} </br>
-    Optimal Random_page_cost is<br/>
-    {% if result.random_page_cost_1 == 1 %} 1.0 {% endif %} <br/>
-    {% if result.random_page_cost_2 == 1 %} 2.0 {% endif %} <br/>
-    {% if result.random_page_cost_4 == 1 %} 4.0 {% endif %} <br/>
-    {% if result.random_page_cost_8 == 1 %} 8.0 {% endif %} <br/>
-    {% if result.random_page_cost_16 == 1 %} 16.0 {% endif %} <br/>
-    {% if result.random_page_cost_32 == 1 %} 32.0 {% endif %} <br/>
+    <div style="padding: 100px; text-align: center;">
+        <div style="height: 40%;
+                    margin-bottom: 50px;
+                    ">
+            <h1>Optimal Random_page_cost in PostgreSQL</h1>
+            
+        </div>
+        <div style="
+                text-align:left;
+                margin-left: 50px;
+                margin-bottom:30px;
+        ">
+            <div style="font-size:24px; color:#000080;">Input query</div>
+            <div style="font-size:18px;
+                        margin-top: 15px;
+                        margin-bottom: 25px;
+            ">{{result.query_sentence}}</div>
+        </div>
+        <div style="font-size: 24px;
+        text-align:left;
+        margin-left: 50px;
+        margin-bottom:25px;
+        color:#000080;
+        ">
+            Optimal Random_page_cost is
+        </div>
+        <div style="font-size: 35px;
+                    display:flex;
+                    margin-left: 50px;
+        ">
+            <div class="cost">
+                {% if result.random_page_cost_1 == 1 %} 1.0 {% endif %} <br/>
+            </div>
+            <div class="cost">
+                {% if result.random_page_cost_2 == 1 %} 2.0 {% endif %} <br/>
+            </div>
+            <div class="cost">
+                {% if result.random_page_cost_4 == 1 %} 4.0 {% endif %} <br/>
+            </div>
+            <div class="cost">
+                {% if result.random_page_cost_8 == 1 %} 8.0 {% endif %} <br/>
+            </div>
+            <div class="cost">
+                {% if result.random_page_cost_16 == 1 %} 16.0 {% endif %} <br/>
+            </div>
+            <div class="cost">
+                {% if result.random_page_cost_32 == 1 %} 32.0 {% endif %} <br/>
+            </div>
+
+        </div>
+
+    <div style="margin-top: 50px; color: gray; font-size:14px">
+        2022-1 정보통신종합설계<br>Inha Univ. Information and Communication Engineering<br>최조훈, 고병찬, 송진서</div>
+        </div>
+    </div>
+
 </body>
 </html>
