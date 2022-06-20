@@ -9,13 +9,14 @@ def enter_query(request):
     query_input=Query()
     if request.method=='POST':
         query_input.original_query_input=request.POST['queryInput']
+        query_input.query_sentence=request.POST['queryInput']
         query_input.save()
         return redirect('/result/'+str(query_input.id))
     return render(request, 'input.html')
 
 def predict(request, id):
     query_input=get_object_or_404(Query, pk=id)
-    query_input.query_sentence=table_column_preprocessing(query_input.original_query_input) # table, column 전처리
+    # query_input.query_sentence=table_column_preprocessing(query_input.original_query_input) # table, column 전처리
     result_cost=test_sentences(query_input.query_sentence) # return type : [0, 0, 0, 0, 0, 0]
 
     if result_cost[0]==1: query_input.random_page_cost_1=1
@@ -27,5 +28,8 @@ def predict(request, id):
     query_input.save()
 
     print(query_input.query_sentence)
+    result={
+        'result':query_input
+    }
 
-    return render(request, 'result.html', result={'result':query_input})
+    return render(request, 'result.html', result)

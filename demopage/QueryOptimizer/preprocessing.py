@@ -11,10 +11,7 @@ alias_dic = {}
 table_dic = {}
 column_dic = {}
 
-def table_column_preprocessing(self):
-        q = open('./sql_queries/temp/refined_test_queries2.txt', 'r')
-        w = open('./modeling/test_data.txt', 'w')
-
+def table_column_preprocessing(q):
         while True:
             line = q.readline()
 
@@ -33,5 +30,5 @@ def table_column_preprocessing(self):
                     word = ''
 
                 if word == '': continue
-                w.write(word + ' ')
-            w.write('\n')
+                w=word + ' '
+        return w
