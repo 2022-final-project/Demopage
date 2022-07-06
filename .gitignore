@@ -1,8 +1,6 @@
-demopage/demopage/__pycache__
-demopage/QueryOptimizer/__pycache__
-demopage/QueryOptimizer/pretrained_model
-demopage/QueryOptimizer/pretrained_tokenizer
-demopage/QueryOptimizer/migrations
+QueryOptimizer/pretrained_model
+QueryOptimizer/pretrained_tokenizer
+QueryOptimizer/migrations
 *.json
 *.bin
 *.pyc
