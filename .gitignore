@@ -4,3 +4,4 @@ QueryOptimizer/migrations
 *.json
 *.bin
 *.pyc
+.DS_Store
