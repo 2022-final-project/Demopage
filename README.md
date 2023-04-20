@@ -1,9 +1,6 @@
 # PostgreSQL-Query-Planner-Web
 PostgreSQL의 최적의 비용 상수를 계산하는 AI 모델의 시연용 웹
 
-## Tech Stack
-Django
-
 ## Description
 PostgreSQL의 Query Planner가 내부적으로 사용하는 **최적의 비용 상수(cost variable)** 를 계산하는 BERT 기반 인공지능 모델의 처리 결과를 시연합니다.
 
